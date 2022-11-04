@@ -1,83 +1,74 @@
 const myArray = [1, 10, 3, 6, 'ArrayElement'];
 
-/**
- * 1. Log to console 3 and '{}'
- * Please, use more than on solution
- */
+// 1. Log to console 3 and '{}'
+// Please, use more than on solution
 
 // console.log(`3: ${}`);
 // console.log(`{}: ${}`);
 
-/**
- *  2. Log type of each element
- */
+console.log(`3: ${myArray[2]}`);
+console.log(`{}: ${myArray[4]}`);
+
+// 2. Log type of each element
 
 myArray.forEach(() => {
-    console.log();
+  console.log(typeof myArray);
 });
 
-/**
- *  3. Check if all elements in array is Number
- *  Should return Boolean
- */
+// 3. Check if all elements in array is Number
+// Should return Boolean
 
-const isNumber = myArray.YOUR_METHOD;
-
-console.log({
-    isNumber,
+const isNumber = myArray.every((element) => {
+  return typeof element === 'number';
 });
 
-/**
- * 4. Check if at least one element is bigger than 5
- * Should return Boolean
- */
+console.log({ isNumber });
 
-const isBiggerThanFive = myArray.YOUR_METHOD;
+// 4. Check if at least one element is bigger than 5
+// Should return Boolean
 
-console.log({
-    isBiggerThanFive,
+const isBiggerThanFive = myArray.some((element) => {
+  return element > 5;
 });
 
-/**
- * 5. Create another variable that will include only elements that bigger than 5
- * Should return another Array
- */
+console.log({ isBiggerThanFive });
 
-const elementsBiggerThanFive = myArray.YOUR_METHOD;
+// 5. Create another variable that will include only elements that bigger than 5
+// Should return another Array
 
-console.log({
-    elementsBiggerThanFive,
+const elementsBiggerThanFive = myArray.filter((element) => {
+  return element > 5;
 });
 
-/**
- * 6. Multiply numbers of Array by 2
- * Should return another Array
- */
+console.log({ elementsBiggerThanFive });
 
-const multiplied = myArray.YOUR_METHOD;
+// 6. Multiply numbers of Array by 2
+// Should return another Array
 
-console.log({
-    multiplied,
+const multiplied = myArray.map((element) => {
+  return element * 2;
 });
 
-/**
- * 7. Calculate array sum
- */
+console.log({ multiplied });
 
-const sum = myArray.reduce();
+// 7. Calculate array sum
 
-console.log({
-    sum,
+const sum = myArray.reduce((acc, element) => {
+  return acc + element;
+}, 0);
+
+console.log({ sum });
+
+// 8. Sort array in ascending and descending order
+const myArrayAsc = [1, 10, 3, 6, 'ArrayElement'];
+const myArrayDesc = [1, 10, 3, 6, 'ArrayElement'];
+
+const asc = myArrayAsc.sort((a, b) => {
+  return a - b;
 });
 
-/**
- * 8. Sort array in ascending and descending order
- */
-
-const asc = myArray.YOUR_METHOD;
-const desc = myArray.YOUR_METHOD;
-
-console.log({
-    asc,
-    desc,
+const desc = myArrayDesc.sort((a, b) => {
+  return b - a;
 });
+
+console.log({ asc, desc });

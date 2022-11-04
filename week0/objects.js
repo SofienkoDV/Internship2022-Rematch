@@ -1,71 +1,71 @@
 const invoice = {
-    firstName: 'Node',
-    lastName: 'Developer',
-    createdAt: '2022-10-31T22:50:59.305Z',
-    amount: 150,
-    currency: 'USD',
+  firstName: 'Node',
+  lastName: 'Developer',
+  createdAt: '2022-10-31T22:50:59.305Z',
+  amount: 150,
+  currency: 'USD',
 };
 
-/**
- * 1. Log firstName and lastName in dot notation and bracket notation
- */
+// 1. Log firstName and lastName in dot notation and bracket notation
 
-console.log(`First name: `);
-console.log(`Last name: `);
+console.log(`First name: ${invoice.firstName}`);
+console.log(`Last name: ${invoice.lastName}`);
 
-/**
- * 2. Log Object Keys
- */
+// 2. Log Object Keys
 
-const keys = invoice.YOUR_METHOD;
+const keys = Object.keys(invoice);
 
-console.log({
-    keys,
-});
+console.log({ keys });
 
-/**
- * 3. Log Object values
- */
+// 3. Log Object values
 
-const values = invoice.YOUR_METHOD;
+const values = Object.values(invoice);
 
-console.log({
-    values,
-});
+console.log({ values });
 
-/**
- * 4. Log Object entries
- */
+// 4. Log Object entries
 
-const entries = invoice.YOUR_METHOD;
+const entries = Object.entries(invoice);
 
-console.log({
-    entries,
-});
+console.log({ entries });
 
-/**
- * 5. Create second variable invoce from original
- * Please, use more than one solution
- */
+// 5. Create second variable invoice from original
+// Please, use more than one solution
 
-const copiedInvoice = {};
+const copiedInvoice = { ...invoice };
+const copiedInvoice2 = Object.assign({}, invoice);
+const copiedInvoice3 = JSON.parse(JSON.stringify(invoice));
+const copiedInvoice4 = Object.create(invoice);
+const copiedInvoice5 = new Object(invoice);
+const copiedInvoice6 = Object.create(
+  Object.getPrototypeOf(invoice),
+  Object.getOwnPropertyDescriptors(invoice)
+);
+const copiedInvoice7 = Object.create(
+  invoice,
+  Object.getOwnPropertyDescriptors(invoice)
+);
 
 console.log({
-    copiedInvoice,
+  copiedInvoice,
+  copiedInvoice2,
+  copiedInvoice3,
+  copiedInvoice4,
+  copiedInvoice5,
+  copiedInvoice6,
+  copiedInvoice7,
 });
 
-/**
- * 6. Modify copiedInvoice amount value
- * Important: original invoice amount shouldnt be modified
- */
+// 6. Modify copiedInvoice amount value
+// Important: original invoice amount shouldn't be modified
 
-copiedInvoice.amount = 300;
+// const copiedInvoice = { ...invoice };
+copiedInvoice.amount = 200;
 
-console.log({
-    invoice,
-    copiedInvoice,
-});
+console.log({ invoice, copiedInvoice });
 
-/**
- * 7. Loop through object and log key-values
- */
+// 7. Loop through object and log key-values
+
+for (const key in invoice) {
+  console.log(`${key}: ${invoice[key]}`);
+}
