@@ -20,8 +20,8 @@ console.log(`6: ${myArray.splice(2, 1)}`);
 
 // 2. Log type of each element
 
-myArray.forEach(() => {
-  console.log(typeof myArray);
+myArray.forEach((element) => {
+  console.log('Type of element: ', typeof element);
 });
 
 // 3. Check if all elements in array is Number
