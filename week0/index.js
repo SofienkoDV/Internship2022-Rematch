@@ -1,15 +1,5 @@
-import express from 'express';
 import axios from 'axios';
 import fs from 'fs';
-
-const app = express();
-
-app.listen(4444, (error) => {
-  if (error) {
-    console.log(error);
-  }
-  console.log('Server is running on port 4444');
-});
 
 function getTodo() {
   return axios.get('https://jsonplaceholder.typicode.com/todos');
