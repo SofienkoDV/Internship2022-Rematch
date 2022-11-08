@@ -1,13 +1,19 @@
 const myArray = [1, 10, 3, 6, 'ArrayElement'];
 
-// 1. Log to console 3 and '{}'
+// 1. Log 3 and 6 elements from myArray to console
 // Please, use more than on solution
 
 // console.log(`3: ${}`);
-// console.log(`{}: ${}`);
+// console.log(`6: ${}`);
 
 console.log(`3: ${myArray[2]}`);
-console.log(`{}: ${myArray[4]}`);
+console.log(`6: ${myArray[3]}`);
+
+console.log(`3: ${myArray.slice(2, 3)}`);
+console.log(`6: ${myArray.slice(3, 4)}`);
+
+console.log(`3: ${myArray.splice(2, 1)}`);
+console.log(`6: ${myArray.splice(2, 1)}`);
 
 // 2. Log type of each element
 
