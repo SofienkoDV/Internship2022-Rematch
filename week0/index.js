@@ -23,18 +23,38 @@ function writeToFile(data, fileName) {
 
 function main() {
   const env = process.argv[2];
-  if (env === 'PRODUCTION') {
-    getTodo().then((response) => {
-      writeToFile(response.data, 'assets/todo.json');
-    });
-  } else if (env === 'DEV') {
-    getAlbums().then((response) => {
-      writeToFile(response.data, 'assets/albums.json');
-    });
-  } else {
-    getUsers().then((response) => {
-      writeToFile(response.data, 'assets/users.json');
-    });
+
+  switch (env) {
+    case 'PRODUCTION':
+      getTodo()
+        .then((response) => {
+          writeToFile(response.data, 'assets/todo.json');
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log('Error while fetching todo');
+        });
+      break;
+    case 'DEV':
+      getAlbums()
+        .then((response) => {
+          writeToFile(response.data, 'assets/albums.json');
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log('Error while fetching albums');
+        });
+      break;
+    default:
+      getUsers()
+        .then((response) => {
+          writeToFile(response.data, 'assets/users.json');
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log('Error while fetching users');
+        });
+      break;
   }
 }
 
