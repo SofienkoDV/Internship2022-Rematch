@@ -9,6 +9,9 @@ const myArray = [1, 10, 3, 6, 'ArrayElement'];
 console.log(`3: ${myArray[2]}`);
 console.log(`6: ${myArray[3]}`);
 
+console.log(`3: ${myArray.at(2)}`);
+console.log(`6: ${myArray.at(3)}`);
+
 console.log(`3: ${myArray.slice(2, 3)}`);
 console.log(`6: ${myArray.slice(3, 4)}`);
 
