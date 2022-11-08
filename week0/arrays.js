@@ -54,9 +54,13 @@ console.log({ elementsBiggerThanFive });
 // 6. Multiply numbers of Array by 2
 // Should return another Array
 
-const multiplied = myArray.map((element) => {
-  return element * 2;
-});
+const multiplied = myArray
+  .filter((element) => {
+    return typeof element === 'number';
+  })
+  .map((element) => {
+    return element * 2;
+  });
 
 console.log({ multiplied });
 
