@@ -60,14 +60,12 @@ const sum = myArray.reduce((acc, element) => {
 console.log({ sum });
 
 // 8. Sort array in ascending and descending order
-const myArrayAsc = [1, 10, 3, 6, 'ArrayElement'];
-const myArrayDesc = [1, 10, 3, 6, 'ArrayElement'];
 
-const asc = myArrayAsc.sort((a, b) => {
+const asc = [...myArray].sort((a, b) => {
   return a - b;
 });
 
-const desc = myArrayDesc.sort((a, b) => {
+const desc = [...myArray].sort((a, b) => {
   return b - a;
 });
 
