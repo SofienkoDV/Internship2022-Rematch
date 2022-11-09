@@ -66,9 +66,13 @@ console.log({ multiplied });
 
 // 7. Calculate array sum
 
-const sum = myArray.reduce((acc, element) => {
-  return acc + element;
-}, 0);
+const sum = myArray
+  .filter((element) => {
+    return typeof element === 'number';
+  })
+  .reduce((acc, element) => {
+    return acc + element;
+  }, 0);
 
 console.log({ sum });
 
