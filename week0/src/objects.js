@@ -1,9 +1,9 @@
 const invoice = {
-  firstName: 'Node',
-  lastName: 'Developer',
-  createdAt: '2022-10-31T22:50:59.305Z',
-  amount: 150,
-  currency: 'USD',
+    firstName: 'Node',
+    lastName: 'Developer',
+    createdAt: '2022-10-31T22:50:59.305Z',
+    amount: 150,
+    currency: 'USD',
 };
 
 // 1. Log firstName and lastName in dot notation and bracket notation
@@ -33,27 +33,27 @@ console.log({ entries });
 // Please, use more than one solution
 
 const copiedInvoice = { ...invoice };
-const copiedInvoice2 = Object.assign({}, invoice);
+// const copiedInvoice2 = Object.assign({}, invoice);
 const copiedInvoice3 = JSON.parse(JSON.stringify(invoice));
 const copiedInvoice4 = Object.create(invoice);
-const copiedInvoice5 = new Object(invoice);
+// const copiedInvoice5 = new Object(invoice);
 const copiedInvoice6 = Object.create(
-  Object.getPrototypeOf(invoice),
-  Object.getOwnPropertyDescriptors(invoice)
+    Object.getPrototypeOf(invoice),
+    Object.getOwnPropertyDescriptors(invoice),
 );
 const copiedInvoice7 = Object.create(
-  invoice,
-  Object.getOwnPropertyDescriptors(invoice)
+    invoice,
+    Object.getOwnPropertyDescriptors(invoice),
 );
 
 console.log({
-  copiedInvoice,
-  copiedInvoice2,
-  copiedInvoice3,
-  copiedInvoice4,
-  copiedInvoice5,
-  copiedInvoice6,
-  copiedInvoice7,
+    copiedInvoice,
+    // copiedInvoice2,
+    copiedInvoice3,
+    copiedInvoice4,
+    // copiedInvoice5,
+    copiedInvoice6,
+    copiedInvoice7,
 });
 
 // 6. Modify copiedInvoice amount value
@@ -66,6 +66,6 @@ console.log({ invoice, copiedInvoice });
 
 // 7. Loop through object and log key-values
 
-for (const key in invoice) {
-  console.log(`${key}: ${invoice[key]}`);
-}
+Object.entries(invoice).forEach(([key, value]) => {
+    console.log(`${key}: ${value}`);
+});
