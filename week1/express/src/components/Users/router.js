@@ -1,16 +1,18 @@
-const { Router } = require('express');
-const UsersComponent = require('./index');
+import { Router } from 'express';
+import { registerValidation, loginValidation } from './validations.js';
+
+import userController from './userController.js';
+import checkAuth from '../../config/checkAuth.js';
+import handleValidationErrors from '../../config/handleValidationErrors.js';
 
 const router = Router();
 
-router.get('/', UsersComponent.findAllUsers);
+router.post('/register', registerValidation, handleValidationErrors, userController.register);
 
-router.post('/user', UsersComponent.createUser);
+router.post('/login', loginValidation, handleValidationErrors, userController.login);
+router.get('/verify', checkAuth, userController.verify);
 
-router.get('/:id', UsersComponent.findUserById);
+router.put('/update', checkAuth, userController.update);
+router.delete('/remove', checkAuth, userController.remove);
 
-router.put('/:id', UsersComponent.updateUser);
-
-router.delete('/:id', UsersComponent.removeUser);
-
-module.exports = router;
+export default router;
