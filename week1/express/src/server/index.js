@@ -1,7 +1,8 @@
-const http = require('http');
+/* eslint-disable import/extensions */
+import http from 'http';
 
-const server = require('./server');
-const events = require('./events');
+import server from './server.js';
+import events from './events.js';
 
 const PORT = server.get('port');
 
