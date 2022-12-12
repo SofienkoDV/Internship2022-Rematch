@@ -3,7 +3,7 @@ import { body } from 'express-validator';
 export const registerValidation = [
     body('email').isEmail().withMessage('Email is not valid'),
 
-    body('password')
+    body('passwordHash')
         .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/)
         .withMessage(
             'Password must contain at least 8 characters, one uppercase, one lowercase and one number',
@@ -16,5 +16,5 @@ export const registerValidation = [
 
 export const loginValidation = [
     body('email').isEmail().withMessage('Email is not valid'),
-    body('password').notEmpty().withMessage('Password is required'),
+    body('passwordHash').notEmpty().withMessage('Password is required'),
 ];
