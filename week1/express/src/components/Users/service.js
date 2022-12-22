@@ -2,8 +2,8 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/extensions */
 
-import jwt from 'jsonwebtoken';
-import UserModel from './model.js';
+const jwt = require('jsonwebtoken');
+const UserModel = require('./model');
 
 function generateAccessToken(user) {
     const payload = {
@@ -93,7 +93,7 @@ async function remove(user) {
     return deletedUser;
 }
 
-export default {
+module.exports = {
     register,
     login,
     verify,

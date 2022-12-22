@@ -1,9 +1,8 @@
-/* eslint-disable import/extensions */
-import { Router } from 'express';
-import { registerValidation, loginValidation } from './validations.js';
-import handleValidationErrors from '../../config/handleValidationErrors.js';
-import checkAuth from '../../config/checkAuth.js';
-import userComponent from './index.js';
+const { Router } = require('express');
+const { registerValidation, loginValidation } = require('./validations');
+const handleValidationErrors = require('../../config/handleValidationErrors');
+const checkAuth = require('../../config/checkAuth');
+const userComponent = require('./index');
 
 const router = Router();
 
@@ -27,4 +26,4 @@ router.put('/update', checkAuth, userComponent.userUpdate);
 
 router.delete('/remove', checkAuth, userComponent.userRemove);
 
-export default router;
+module.exports = router;

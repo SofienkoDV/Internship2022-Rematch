@@ -1,18 +1,17 @@
-/* eslint-disable import/extensions */
-import express from 'express';
+const express = require('express');
 
-import middleware from '../config/middleware.js';
-import router from '../config/router.js';
-import connect from '../config/mongoConnection.js';
+const { connect } = require('../config/db');
+const middleware = require('../config/middleware');
+const router = require('../config/router');
 
 const app = express();
 
-middleware(app);
+middleware.init(app);
 
-router(app);
+router.init(app);
 
 connect();
 
 app.set('port', process.env.PORT || 4444);
 
-export default app;
+module.exports = app;

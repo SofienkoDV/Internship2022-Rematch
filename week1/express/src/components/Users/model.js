@@ -1,6 +1,6 @@
 /* eslint-disable no-return-await */
-import bcrypt from 'bcrypt';
-import mongoose from 'mongoose';
+const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema(
     {
@@ -38,4 +38,4 @@ userSchema.methods.isValidPassword = async function isValidPassword(password) {
 
 const UserModel = mongoose.model('User', userSchema);
 
-export default UserModel;
+module.exports = UserModel;

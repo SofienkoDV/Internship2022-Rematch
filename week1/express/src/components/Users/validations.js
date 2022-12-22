@@ -1,6 +1,6 @@
-import { body } from 'express-validator';
+const { body } = require('express-validator');
 
-export const registerValidation = [
+const registerValidation = [
     body('email').isEmail().withMessage('Email is not valid'),
 
     body('passwordHash')
@@ -14,7 +14,12 @@ export const registerValidation = [
     body('avatarUrl').optional().isURL().withMessage('Avatar URL is not valid'),
 ];
 
-export const loginValidation = [
+const loginValidation = [
     body('email').isEmail().withMessage('Email is not valid'),
     body('passwordHash').notEmpty().withMessage('Password is required'),
 ];
+
+module.exports = {
+    registerValidation,
+    loginValidation,
+};

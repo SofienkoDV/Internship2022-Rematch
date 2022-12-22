@@ -12,7 +12,7 @@ function bind(Server) {
     Server.on('listening', this.onListening.bind(Server));
 }
 
-export default {
+module.exports = {
     bind,
     onListening,
 };

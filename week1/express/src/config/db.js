@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const URL = 'mongodb+srv://Admin:Den055037@cluster0.e5xbnau.mongodb.net/blog?retryWrites=true&w=majority';
 
@@ -15,4 +15,4 @@ async function connect() {
     }
 }
 
-export default connect;
+module.exports = { connect };

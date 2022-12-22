@@ -1,17 +1,18 @@
-/* eslint-disable import/extensions */
-import express from 'express';
-import http from 'http';
+const express = require('express');
+const http = require('http');
 
-import UsersRouter from '../components/Users/router.js';
+const UsersRouter = require('../components/Users/router');
 
-export default (app) => {
-    const router = express.Router();
+module.exports = {
+    init(app) {
+        const router = express.Router();
 
-    app.use('/v1/users', UsersRouter);
+        app.use('/v1/users', UsersRouter);
 
-    app.use((req, res) => {
-        res.status(404).send(http.STATUS_CODES[404]);
-    });
+        app.use((req, res) => {
+            res.status(404).send(http.STATUS_CODES[404]);
+        });
 
-    app.use(router);
+        app.use(router);
+    },
 };

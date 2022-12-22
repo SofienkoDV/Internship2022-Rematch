@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
 
 const checkAuth = (req, res, next) => {
     const token = (req.headers.authorization || '').replace('Bearer ', '');
@@ -18,4 +18,4 @@ const checkAuth = (req, res, next) => {
     }
 };
 
-export default checkAuth;
+module.exports = checkAuth;

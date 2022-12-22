@@ -1,5 +1,4 @@
-/* eslint-disable import/extensions */
-import UsersService from './service.js';
+const UsersService = require('./service');
 
 async function userRegister(req, res) {
     try {
@@ -51,7 +50,7 @@ async function userRemove(req, res) {
     }
 }
 
-export default {
+module.exports = {
     userRegister,
     userLogin,
     userVerify,
