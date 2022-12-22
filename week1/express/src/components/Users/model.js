@@ -1,4 +1,3 @@
-/* eslint-disable no-return-await */
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 
@@ -33,7 +32,9 @@ userSchema.pre('save', async function preSave(next) {
 });
 
 userSchema.methods.isValidPassword = async function isValidPassword(password) {
-    return await bcrypt.compare(password, this.passwordHash);
+    const compare = await bcrypt.compare(password, this.passwordHash);
+
+    return compare;
 };
 
 const UserModel = mongoose.model('User', userSchema);
