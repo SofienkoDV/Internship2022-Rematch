@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable import/extensions */
 
 const jwt = require('jsonwebtoken');
 const UserModel = require('./model');
