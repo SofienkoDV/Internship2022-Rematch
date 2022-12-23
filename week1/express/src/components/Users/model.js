@@ -1,7 +1,8 @@
 const bcrypt = require('bcrypt');
-const mongoose = require('mongoose');
+const { Schema } = require('mongoose');
+const connection = require('../../config/mongoConnection');
 
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema(
     {
         fullName: {
             type: String,
@@ -37,6 +38,6 @@ userSchema.methods.isValidPassword = async function isValidPassword(password) {
     return compare;
 };
 
-const UserModel = mongoose.model('User', userSchema);
+const UserModel = connection.model('User', userSchema);
 
 module.exports = UserModel;
