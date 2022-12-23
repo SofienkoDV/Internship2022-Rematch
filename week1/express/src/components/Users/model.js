@@ -4,7 +4,11 @@ const connection = require('../../config/mongoConnection');
 
 const userSchema = new Schema(
     {
-        fullName: {
+        firstName: {
+            type: String,
+            required: true,
+        },
+        lastName: {
             type: String,
             required: true,
         },
@@ -17,7 +21,6 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        avatarUrl: String,
     },
     {
         timestamps: true,

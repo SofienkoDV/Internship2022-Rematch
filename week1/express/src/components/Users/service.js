@@ -10,26 +10,19 @@ function generateAccessToken(user) {
     };
 
     return jwt.sign(payload, 'secret', {
-        expiresIn: '1h',
+        expiresIn: '24h',
     });
 }
 
 async function register(userData) {
-    const { email, passwordHash, fullName } = userData;
+    const user = await UserModel.create(userData);
 
-    const user = await UserModel.findOne({ email });
+    const token = generateAccessToken(user);
 
-    if (user) {
-        throw new Error('User with this email already exists');
-    } else {
-        const newUser = await UserModel.create({
-            email,
-            passwordHash,
-            fullName,
-        });
-
-        return newUser;
-    }
+    return {
+        token,
+        user,
+    };
 }
 
 async function login(userData) {
@@ -40,13 +33,13 @@ async function login(userData) {
     });
 
     if (!user) {
-        throw new Error('User with this email does not exist');
+        throw new Error('User not found');
     }
 
-    const isPasswordValid = await user.isValidPassword(passwordHash);
+    const isValidPassword = await user.isValidPassword(passwordHash);
 
-    if (!isPasswordValid) {
-        throw new Error('Password is not valid');
+    if (!isValidPassword) {
+        throw new Error('Invalid password');
     }
 
     const token = generateAccessToken(user);
@@ -68,19 +61,9 @@ async function verify(token) {
 }
 
 async function update(user, userData) {
-    const { email, passwordHash, fullName } = userData;
-
-    const updatedUser = await UserModel.findByIdAndUpdate(
-        user.userId,
-        {
-            email,
-            passwordHash,
-            fullName,
-        },
-        {
-            new: true,
-        },
-    );
+    const updatedUser = await UserModel.findByIdAndUpdate(user.userId, userData, {
+        new: true,
+    });
 
     return updatedUser;
 }
