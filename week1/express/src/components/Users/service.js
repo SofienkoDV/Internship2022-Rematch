@@ -1,12 +1,12 @@
-/* eslint-disable no-underscore-dangle */
-
 const jwt = require('jsonwebtoken');
 const UserModel = require('./model');
 
 function generateAccessToken(user) {
+    const { _id, email } = user;
+
     const payload = {
-        userId: user._id,
-        email: user.email,
+        userId: _id,
+        email,
     };
 
     return jwt.sign(payload, 'secret', {
