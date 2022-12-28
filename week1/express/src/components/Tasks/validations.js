@@ -25,6 +25,14 @@ const createTaskValidation = [
         .withMessage('Assignee is required')
         .isMongoId()
         .withMessage('Assignee must be a valid Mongo ID'),
+    body('status')
+        .exists()
+        .withMessage('Status is required')
+        .isString()
+        .withMessage('Status must be a string')
+        .isIn(['todo', 'in-progress', 'done'])
+        .withMessage('Status must be one of the following: todo, in-progress, done'),
+
 ];
 
 module.exports = {

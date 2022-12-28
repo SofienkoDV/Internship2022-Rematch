@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const TasksService = require('./service');
 
 async function createTask(req, res) {
@@ -32,7 +33,7 @@ async function getTasks(req, res) {
 
 async function getAllTasks(req, res) {
     try {
-        const tasks = await TasksService.getAllTasksService();
+        const tasks = await TasksService.getAllTasksService(req.user.userId);
 
         res.status(200).json({ data: tasks });
     } catch (error) {
