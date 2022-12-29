@@ -1,4 +1,4 @@
-const URL = 'mongodb+srv://Admin:Den055037@cluster0.e5xbnau.mongodb.net/blog?retryWrites=true&w=majority';
+const URL = 'mongodb+srv://Admin:Den055037@cluster0.e5xbnau.mongodb.net/internship2022-backend?retryWrites=true&w=majority';
 
 module.exports = {
     mongodb: {

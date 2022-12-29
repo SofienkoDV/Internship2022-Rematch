@@ -13,7 +13,7 @@ async function createTaskService(task) {
         description,
         estimatedTime,
         createdBy,
-        status: 'todo',
+        status: 'in-progress',
     });
 
     return taskModel.save();
