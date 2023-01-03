@@ -1,0 +1,529 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Task Manager",
+        "description": "",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:4444",
+    "basePath": "/v1",
+     "paths": {
+        "/users/register": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Register a new user",
+                "description": "Register a new user",
+                "operationId": "registerUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/User"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/users/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Login a user",
+                "description": "Login a user",
+                "operationId": "loginUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/User"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/users/verify": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Verify a user",
+                "description": "Verify a user",
+                "operationId": "verifyUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/User"
+                    }
+                }],
+
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/users/update": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update a user",
+                "description": "Update a user",
+                "operationId": "updateUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/User"
+                    }
+                },
+                {
+                    "in": "body",
+                    "name": "body",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/User"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/users/remove": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Remove a user",
+                "description": "Remove a user",
+                "operationId": "removeUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/User"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/tasks/create": {
+            "post": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Create a new task",
+                "description": "Create a new task",
+                "operationId": "createTask",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Task"
+                    }
+                },
+                {
+                    "in": "body",
+                    "name": "body",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Task"
+                    }
+                }],
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Task"
+                        }
+                    },
+                    "500": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/tasks/update/{id}": {
+            "put": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Update a task",
+                "description": "Update a task",
+                "operationId": "updateTask",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Task"
+                    }
+                },
+                {
+                    "in": "path",
+                    "name": "id",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Task"
+                    }
+                },
+                {
+                    "in": "body",
+                    "name": "body",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Task"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Task"
+                        }
+                    },
+                    "500": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/tasks/get": {
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Get all tasks",
+                "description": "Get all tasks",
+                "operationId": "getTasks",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Task"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Task"
+                        }
+                    },
+                    "500": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/tasks/get-all": {
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Get all tasks",
+                "description": "Get all tasks",
+                "operationId": "getAllTasks",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Task"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Task"
+                        }
+                    },
+                    "500": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/tasks/get/{id}": {
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Get a task",
+                "description": "Get a task",
+                "operationId": "getTask",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Task"
+                    }
+                },
+                {
+                    "in": "path",
+                    "name": "id",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Task"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Task"
+                        }
+                    },
+                    "500": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/tasks/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Delete a task",
+                "description": "Delete a task",
+                "operationId": "deleteTask",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Task"
+                    }
+                },
+                {
+                    "in": "path",
+                    "name": "id",
+                    "description": "User object that needs to be added",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Task"
+                    }
+                }],
+                "responses": {
+                    "204": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Task"
+                        }
+                    },
+                    "500": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Task": {
+            "type": "object",
+            "properties": {
+                "assignee": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "estimatedTime:": {
+                    "type": "number"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "passwordHash": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+    
+
+            
+
+
+
+
+            
+    
+
+    
+
+
+
